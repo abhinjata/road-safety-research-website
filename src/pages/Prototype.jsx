@@ -444,6 +444,415 @@ export default function Prototype() {
       </motion.div>
       </section>
 
+      {/* ===== SYSTEM ARCHITECTURE ===== */}
+      <section style={{ padding: '6rem 2rem', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '3.5rem' }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.15em', marginBottom: '0.75rem' }}>
+              SYSTEM ARCHITECTURE
+            </p>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontFamily: 'var(--font-display)', marginBottom: '1rem' }}>
+              How the license system<br />
+              <span style={{ fontStyle: 'italic' }}>actually works</span>
+            </h2>
+            <p style={{ color: 'var(--text-dim)', maxWidth: 620, lineHeight: 1.7, fontSize: '0.9rem' }}>
+              A five-layer data architecture connecting students, institutions, insurers, and service providers — governed by a real-time behavioral scoring engine that turns daily decisions into tangible rewards.
+            </p>
+          </motion.div>
+
+          {/* ── FLOW DIAGRAM ── */}
+          {[
+            {
+              num: '01', label: 'INPUT LAYER', color: '#7eb8d4',
+              desc: 'Registration & onboarding',
+              nodes: [
+                { icon: '📱', label: 'Mobile App', sub: 'Onboarding & daily use' },
+                { icon: '🪪', label: 'Aadhaar / DL', sub: 'Identity verification' },
+                { icon: '🎓', label: 'Student ID', sub: 'University auth' },
+                { icon: '🚗', label: 'Vehicle Reg', sub: 'Registration linking' },
+                { icon: '🛡️', label: 'Insurance Co', sub: 'Policy connection' },
+              ],
+            },
+            {
+              num: '02', label: 'DATA COLLECTION', color: '#c47eb5',
+              desc: 'Continuous behavioral telemetry',
+              nodes: [
+                { icon: '📍', label: 'GPS / Telematics', sub: 'Speed & routes' },
+                { icon: '📋', label: 'Challan Records', sub: 'RTO database' },
+                { icon: '💥', label: 'Accident History', sub: 'Police & hospital' },
+                { icon: '🔧', label: 'Maintenance Logs', sub: 'QR service logs' },
+                { icon: '📝', label: 'Test Scores', sub: 'Theory & hazard exams' },
+              ],
+            },
+            {
+              num: '04', label: 'TIER ASSIGNMENT', color: '#e8c547',
+              desc: 'Score maps to driver tier',
+              nodes: [
+                { icon: '🔵', label: 'T1 — Beginner', sub: 'Basic test + monitoring' },
+                { icon: '🟢', label: 'T2 — Safe', sub: '6 mo. no violations' },
+                { icon: '🟡', label: 'T3 — Responsible', sub: 'Maintenance + clean record' },
+                { icon: '🟠', label: 'T4 — Gold', sub: 'Excellent driving score' },
+                { icon: '🔴', label: 'T5 — Mentor', sub: 'Ambassador + clean history' },
+              ],
+            },
+            {
+              num: '05', label: 'BENEFITS OUTPUT', color: '#6ddc8e',
+              desc: 'Rewards distributed to safe drivers',
+              nodes: [
+                { icon: '💰', label: 'Insurance -35%', sub: 'Lowest premium at T4+' },
+                { icon: '⭐', label: 'Safety Points', sub: 'Redeemable rewards' },
+                { icon: '⛽', label: 'Fuel Cashback', sub: 'Partner service discounts' },
+                { icon: '🅿️', label: 'Campus Parking', sub: 'Priority access' },
+                { icon: '🎓', label: 'Scholarships', sub: 'T5 mentor reward' },
+              ],
+            },
+          ].map((layer, li) => (
+            <div key={layer.num}>
+              {/* Scoring engine injected between layers 2 and 3 */}
+              {li === 2 && (
+                <>
+                  {/* Connector */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0.6rem 0', gap: 3 }}>
+                    <div style={{ width: 1, height: 18, background: 'rgba(255,255,255,0.12)' }} />
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>feeds scoring engine</span>
+                    <div style={{ width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: '6px solid rgba(255,255,255,0.15)' }} />
+                  </div>
+
+                  {/* Scoring Engine Block */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{
+                      display: 'grid', gridTemplateColumns: '200px 1fr',
+                      gap: '2rem', padding: '1.75rem 1.5rem',
+                      background: 'rgba(232,197,71,0.04)',
+                      border: '1px solid rgba(232,197,71,0.2)',
+                      borderLeft: '3px solid #e8c547',
+                      borderRadius: 8,
+                    }}
+                  >
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                      <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#e8c547', letterSpacing: '0.1em', marginBottom: '0.4rem' }}>03 / ENGINE</p>
+                      <p style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', color: '#e8e4dc', marginBottom: '0.3rem' }}>Driver Scoring Engine</p>
+                      <p style={{ fontSize: '0.72rem', color: 'var(--text-dim)', lineHeight: 1.5 }}>Weighted real-time score from 0–100</p>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                      {[
+                        { label: 'Accidents', weight: 35, color: '#f0855a' },
+                        { label: 'Traffic Violations', weight: 25, color: '#e8c547' },
+                        { label: 'Overspeeding', weight: 15, color: '#7eb8d4' },
+                        { label: 'Vehicle Maintenance', weight: 10, color: '#6ddc8e' },
+                        { label: 'Safe Driving Streak', weight: 10, color: '#c47eb5' },
+                        { label: 'Safety Workshops', weight: 5, color: '#9999aa' },
+                      ].map((f, fi) => (
+                        <div key={fi} style={{ display: 'grid', gridTemplateColumns: '160px 1fr 36px', gap: '0.75rem', alignItems: 'center' }}>
+                          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-dim)' }}>{f.label}</span>
+                          <div style={{ height: 6, background: 'rgba(255,255,255,0.06)', borderRadius: 3, overflow: 'hidden' }}>
+                            <motion.div
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${f.weight / 35 * 100}%` }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 1.1, delay: fi * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+                              style={{ height: '100%', background: f.color, borderRadius: 3 }}
+                            />
+                          </div>
+                          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: f.color, textAlign: 'right' }}>{f.weight}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Connector to layer 3 */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0.6rem 0', gap: 3 }}>
+                    <div style={{ width: 1, height: 18, background: 'rgba(255,255,255,0.12)' }} />
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>assigns tier</span>
+                    <div style={{ width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: '6px solid rgba(255,255,255,0.15)' }} />
+                  </div>
+                </>
+              )}
+
+              {/* Layer card */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                style={{
+                  display: 'grid', gridTemplateColumns: '200px 1fr',
+                  gap: '2rem', padding: '1.75rem 1.5rem',
+                  background: `${layer.color}06`,
+                  border: `1px solid ${layer.color}20`,
+                  borderLeft: `3px solid ${layer.color}`,
+                  borderRadius: 8,
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: layer.color, letterSpacing: '0.1em', marginBottom: '0.4rem' }}>{layer.num} / {layer.label.split(' ')[0]}</p>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', color: '#e8e4dc', marginBottom: '0.3rem' }}>{layer.label}</p>
+                  <p style={{ fontSize: '0.72rem', color: 'var(--text-dim)', lineHeight: 1.5 }}>{layer.desc}</p>
+                </div>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                  {layer.nodes.map((node, ni) => (
+                    <motion.div
+                      key={ni}
+                      whileHover={{ y: -3, borderColor: layer.color, transition: { duration: 0.15 } }}
+                      style={{
+                        background: `${layer.color}08`,
+                        border: `1px solid ${layer.color}22`,
+                        borderRadius: 8, padding: '0.75rem 1rem',
+                        minWidth: 105, cursor: 'default',
+                      }}
+                    >
+                      <div style={{ fontSize: '1.1rem', marginBottom: '0.35rem' }}>{node.icon}</div>
+                      <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.63rem', color: layer.color, fontWeight: 600, marginBottom: '0.2rem', lineHeight: 1.3 }}>{node.label}</p>
+                      <p style={{ fontSize: '0.6rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>{node.sub}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Inter-layer connector (not after last) */}
+              {li < 3 && li !== 1 && (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0.6rem 0', gap: 3 }}>
+                  <div style={{ width: 1, height: 18, background: 'rgba(255,255,255,0.12)' }} />
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>
+                    {li === 0 ? 'collected as' : 'unlocks'}
+                  </span>
+                  <div style={{ width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: '6px solid rgba(255,255,255,0.15)' }} />
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* ── MONITORING OVERLAY ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              marginTop: '1rem',
+              padding: '1.25rem 1.5rem',
+              background: 'rgba(240,133,90,0.04)',
+              border: '1px solid rgba(240,133,90,0.2)',
+              borderLeft: '3px solid #f0855a',
+              borderRadius: 8,
+              display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap',
+            }}
+          >
+            <div>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#f0855a', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>06 / MONITORING  —  continuous cross-layer</p>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.95rem', color: '#e8e4dc' }}>Analytics & Oversight Layer</p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', flex: 1 }}>
+              {[
+                { icon: '🤖', label: 'AI Traffic Analytics' },
+                { icon: '📡', label: 'Telematics Sensors' },
+                { icon: '🛰️', label: 'GPS Speed Monitor' },
+                { icon: '📊', label: 'Driving Score Dashboard' },
+                { icon: '⛑️', label: 'Smart Helmet Integration' },
+              ].map((t, i) => (
+                <div key={i} style={{
+                  display: 'flex', alignItems: 'center', gap: '0.4rem',
+                  background: 'rgba(240,133,90,0.08)',
+                  border: '1px solid rgba(240,133,90,0.18)',
+                  borderRadius: 6, padding: '0.45rem 0.8rem',
+                }}>
+                  <span style={{ fontSize: '0.9rem' }}>{t.icon}</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: '#f0855a' }}>{t.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* ── PENALTY / RECOVERY LOOP ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginTop: '1rem' }}
+          >
+            <div style={{
+              padding: '1.5rem',
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid var(--border)',
+              borderRadius: 8,
+            }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1.25rem' }}>
+                07 / PENALTY & RECOVERY LOOP
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0', flexWrap: 'wrap' }}>
+                {[
+                  { label: 'Violation', sub: 'Challan / Accident', color: '#f04848', arrow: true },
+                  { label: 'Tier Downgrade', sub: 'Score recalculated', color: '#f0855a', arrow: true },
+                  { label: 'Restrictions', sub: 'Temp. privilege cut', color: '#e8c547', arrow: true },
+                  { label: 'Retraining', sub: 'Mandatory course', color: '#7eb8d4', arrow: true },
+                  { label: 'Safe Streak', sub: '30-day clean record', color: '#6ddc8e', arrow: true },
+                  { label: 'Tier Restored', sub: 'Score recovered', color: '#c47eb5', arrow: false },
+                ].map((step, si) => (
+                  <div key={si} style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{
+                      background: `${step.color}10`,
+                      border: `1px solid ${step.color}30`,
+                      borderRadius: 6, padding: '0.6rem 0.85rem',
+                      textAlign: 'center', minWidth: 100,
+                    }}>
+                      <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.63rem', color: step.color, fontWeight: 600, marginBottom: '0.2rem' }}>{step.label}</p>
+                      <p style={{ fontSize: '0.58rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>{step.sub}</p>
+                    </div>
+                    {step.arrow && (
+                      <div style={{ padding: '0 0.4rem', color: 'var(--text-muted)', fontSize: '0.8rem', userSelect: 'none' }}>→</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── INSURANCE INTEGRATION ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginTop: '3rem' }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1.25rem' }}>
+              INSURANCE INTEGRATION LOGIC
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              {[
+                {
+                  title: 'Safe Drivers Receive',
+                  color: '#6ddc8e',
+                  items: ['Reduced premiums', 'Cashback rewards', 'Lower deductibles', 'Free roadside assistance'],
+                  prefix: '↓',
+                },
+                {
+                  title: 'Unsafe Drivers Receive',
+                  color: '#f04848',
+                  items: ['Premium increase', 'Mandatory retraining', 'Temporary tier downgrade', 'Restricted privileges'],
+                  prefix: '↑',
+                },
+              ].map((col, ci) => (
+                <div key={ci} style={{
+                  background: `${col.color}06`,
+                  border: `1px solid ${col.color}20`,
+                  borderRadius: 8, padding: '1.5rem',
+                }}>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: col.color, letterSpacing: '0.08em', marginBottom: '1rem' }}>
+                    {col.title}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                    {col.items.map((item, ii) => (
+                      <div key={ii} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                        <span style={{ color: col.color, fontSize: '0.75rem', fontWeight: 700, minWidth: 14 }}>{col.prefix}</span>
+                        <span style={{ fontSize: '0.82rem', color: 'var(--text-dim)' }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* ── SAFETY POINTS ECOSYSTEM ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginTop: '2rem' }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1.25rem' }}>
+              SAFETY POINT ECOSYSTEM
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              {[
+                {
+                  title: 'Points Earned For',
+                  color: '#e8c547',
+                  items: ['No accidents', 'No challans', 'Helmet / seatbelt compliance', 'Attending safety workshops', 'Reporting potholes & hazards'],
+                  icon: '⭐',
+                },
+                {
+                  title: 'Points Redeemable For',
+                  color: '#7eb8d4',
+                  items: ['Insurance discounts', 'Fuel vouchers', 'Parking passes', 'Campus rewards', 'Public transport credits'],
+                  icon: '🎁',
+                },
+              ].map((col, ci) => (
+                <div key={ci} style={{
+                  background: `${col.color}06`,
+                  border: `1px solid ${col.color}20`,
+                  borderRadius: 8, padding: '1.5rem',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                    <span style={{ fontSize: '1rem' }}>{col.icon}</span>
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: col.color, letterSpacing: '0.08em' }}>
+                      {col.title}
+                    </p>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                    {col.items.map((item, ii) => (
+                      <div key={ii} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                        <div style={{ width: 4, height: 4, borderRadius: '50%', background: col.color, flexShrink: 0 }} />
+                        <span style={{ fontSize: '0.82rem', color: 'var(--text-dim)' }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* ── STAKEHOLDER ECOSYSTEM ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginTop: '2rem' }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1.25rem' }}>
+              STAKEHOLDER ECOSYSTEM
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '0.75rem' }}>
+              {[
+                { icon: '🎓', label: 'Students', role: 'Drivers & data source', color: '#7eb8d4' },
+                { icon: '🏛️', label: 'Colleges', role: 'Awareness & verification', color: '#c47eb5' },
+                { icon: '📑', label: 'RTO', role: 'Licensing authority', color: '#e8c547' },
+                { icon: '🛡️', label: 'Insurance', role: 'Premium management', color: '#6ddc8e' },
+                { icon: '🔧', label: 'Service Centers', role: 'Maintenance tracking', color: '#f0855a' },
+                { icon: '🚔', label: 'Traffic Police', role: 'Violation database', color: '#9999cc' },
+                { icon: '🏛️', label: 'Government', role: 'Regulation & funding', color: '#aaaaaa' },
+              ].map((s, si) => (
+                <motion.div
+                  key={si}
+                  whileHover={{ y: -3, transition: { duration: 0.15 } }}
+                  style={{
+                    background: 'var(--surface)',
+                    border: `1px solid ${s.color}25`,
+                    borderBottom: `2px solid ${s.color}`,
+                    borderRadius: 8, padding: '1rem',
+                    textAlign: 'center',
+                  }}
+                >
+                  <div style={{ fontSize: '1.3rem', marginBottom: '0.4rem' }}>{s.icon}</div>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: s.color, fontWeight: 600, marginBottom: '0.3rem' }}>{s.label}</p>
+                  <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>{s.role}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
       {/* App mockup */}
       <section style={{
         padding: '6rem 2rem',
