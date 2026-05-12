@@ -46,8 +46,8 @@ const members = [
   {
     id: 'SE24UARI031',
     name: 'Karri Sathya Naga Venkat Reddy',
-    role: 'Psychology Researcher',
-    focus: 'Emotional motivations behind risky driving, key motivations analysis',
+    role: 'Psychology Researcher & Traffic Analyst',
+    focus: 'Emotional motivations behind risky driving, traffic policies analysis in Hyderabad',
     color: '#ffc07a',
   },
   {
