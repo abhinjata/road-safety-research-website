@@ -942,6 +942,324 @@ export default function Prototype() {
         </div>
       </section>
 
+      {/* ===== WHY SAFEROUTE WORKS ===== */}
+      <section style={{ padding: '6rem 2rem', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '4rem', maxWidth: 700 }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.15em', marginBottom: '0.75rem' }}>
+              WHY IT WORKS
+            </p>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontFamily: 'var(--font-display)', marginBottom: '1rem' }}>
+              SafeRoute is the<br />
+              <span style={{ fontStyle: 'italic' }}>missing layer</span>
+            </h2>
+            <p style={{ color: 'var(--text-dim)', lineHeight: 1.75, fontSize: '0.95rem' }}>
+              India's traffic enforcement infrastructure is more sophisticated than most people realise — yet purely punitive systems consistently fail to change behaviour. SafeRoute doesn't replace this infrastructure. It completes it.
+            </p>
+          </motion.div>
+
+          {/* The enforcement gap — 4 stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '3rem' }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1.25rem' }}>
+              THE ENFORCEMENT GAP
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+              {[
+                { value: '8 Cr+', label: 'Challans issued in 2024', sub: 'Nearly one for every two registered vehicles', color: '#f0855a' },
+                { value: '75%', label: 'Of ₹12,000 Cr fines uncollected', sub: 'Fines without collection fail to deter', color: '#e8c547' },
+                { value: '11%', label: 'Of global road deaths', sub: 'India — with only 1% of world\'s vehicles', color: '#f04848' },
+                { value: 'Low', label: 'Conviction rate on traffic offences', sub: 'Dilutes the deterrent effect further', color: '#c47eb5' },
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  style={{
+                    background: 'var(--surface)',
+                    border: `1px solid ${stat.color}22`,
+                    borderTop: `2px solid ${stat.color}`,
+                    borderRadius: 8, padding: '1.5rem',
+                  }}
+                >
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.4rem', fontWeight: 900, color: stat.color, lineHeight: 1, marginBottom: '0.6rem' }}>
+                    {stat.value}
+                  </div>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--text)', marginBottom: '0.35rem', fontWeight: 500 }}>{stat.label}</p>
+                  <p style={{ fontSize: '0.72rem', color: 'var(--text-dim)', lineHeight: 1.5 }}>{stat.sub}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* India's existing digital stack */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '3rem' }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1.25rem' }}>
+              INDIA'S EXISTING DIGITAL STACK
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+              {[
+                {
+                  name: 'ITMS', fullName: 'Intelligent Traffic Management System',
+                  color: '#7eb8d4', icon: '📡',
+                  points: ['AI sensor-driven — detects violations without a traffic officer', 'Issues digitally-signed eChallan in real time', 'Now integrating with eChallan platform post-2025'],
+                },
+                {
+                  name: 'FASTag', fullName: 'National Electronic Toll Collection',
+                  color: '#6ddc8e', icon: '🛣️',
+                  points: ['Tracks vehicle movement across all toll points nationally', 'Detects point-to-point overspeeding on highways', 'Used to trace hit-and-run suspects via vehicle trail'],
+                },
+                {
+                  name: 'Parivahan', fullName: 'National Transport Platform',
+                  color: '#e8c547', icon: '🏛️',
+                  points: ['Connects RTOs, police, and virtual courts end-to-end', 'Hosts eChallan, driving licence, and vehicle databases', 'The identity layer every Indian driver already has'],
+                },
+              ].map((sys, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  style={{
+                    background: 'var(--surface)',
+                    border: `1px solid ${sys.color}22`,
+                    borderLeft: `3px solid ${sys.color}`,
+                    borderRadius: 8, padding: '1.5rem',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                    <span style={{ fontSize: '1.3rem' }}>{sys.icon}</span>
+                    <div>
+                      <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 700, color: sys.color }}>{sys.name}</p>
+                      <p style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>{sys.fullName}</p>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {sys.points.map((pt, pi) => (
+                      <div key={pi} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                        <div style={{ width: 4, height: 4, borderRadius: '50%', background: sys.color, marginTop: '0.45rem', flexShrink: 0 }} />
+                        <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', lineHeight: 1.55 }}>{pt}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Before / After flow */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '4rem' }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '1.25rem' }}>
+              THE MISSING LAYER
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '1rem', alignItems: 'center' }}>
+              <div style={{ background: 'rgba(240,72,72,0.05)', border: '1px solid rgba(240,72,72,0.18)', borderRadius: 8, padding: '1.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: '#f04848', letterSpacing: '0.08em', marginBottom: '1rem' }}>WITHOUT SAFEROUTE</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                  {['Driver speeds or violates', 'ITMS auto-issues eChallan', 'Fine often goes unpaid (75%)', 'No behaviour change registered', 'Cycle repeats next week'].map((step, i, arr) => (
+                    <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                      <div style={{ background: 'rgba(240,72,72,0.08)', border: '1px solid rgba(240,72,72,0.15)', borderRadius: 5, padding: '0.4rem 0.75rem', fontSize: '0.75rem', color: 'var(--text-dim)' }}>{step}</div>
+                      {i < arr.length - 1 && <div style={{ width: 1, height: 14, background: 'rgba(240,72,72,0.2)', marginLeft: 20 }} />}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem', padding: '0 0.5rem' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--accent)', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>+ SafeRoute</span>
+                <span style={{ fontSize: '1.4rem', color: 'var(--accent)' }}>→</span>
+              </div>
+
+              <div style={{ background: 'rgba(109,220,142,0.05)', border: '1px solid rgba(109,220,142,0.18)', borderRadius: 8, padding: '1.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: '#6ddc8e', letterSpacing: '0.08em', marginBottom: '1rem' }}>WITH SAFEROUTE</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                  {['Driver drives safely', 'ITMS confirms zero violations', 'Parivahan score updates live', 'SafeRoute grants tier upgrade', 'Insurance premium drops 25%'].map((step, i, arr) => (
+                    <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                      <div style={{ background: 'rgba(109,220,142,0.08)', border: '1px solid rgba(109,220,142,0.15)', borderRadius: 5, padding: '0.4rem 0.75rem', fontSize: '0.75rem', color: 'var(--text)' }}>{step}</div>
+                      {i < arr.length - 1 && <div style={{ width: 1, height: 14, background: 'rgba(109,220,142,0.2)', marginLeft: 20 }} />}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Integration prototype */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
+              INTEGRATION PROTOTYPE
+            </p>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-dim)', marginBottom: '2.5rem', maxWidth: 600, lineHeight: 1.7 }}>
+              The same Parivahan driver identity that currently only tracks wrongdoing can surface directly inside SafeRoute — turning government enforcement data into a personalised safety dashboard.
+            </p>
+
+            <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center' }}>
+
+              {/* Data source diagram */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                style={{ flex: '1 1 320px', maxWidth: 420 }}
+              >
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '0.08em', marginBottom: '1rem' }}>DATA SOURCES → SAFEROUTE</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                  {[
+                    { system: 'Parivahan', data: 'Driver licence + RTO records', color: '#e8c547', icon: '🏛️' },
+                    { system: 'eChallan / ITMS', data: 'Violation history + real-time detections', color: '#7eb8d4', icon: '📡' },
+                    { system: 'FASTag', data: 'Highway speed compliance data', color: '#6ddc8e', icon: '🛣️' },
+                    { system: 'Insurance API', data: 'Premium tier + claim history', color: '#c47eb5', icon: '🛡️' },
+                    { system: 'Service Centers', data: 'Maintenance logs via QR scan', color: '#f0855a', icon: '🔧' },
+                  ].map((src, si) => (
+                    <div key={si} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <div style={{
+                        background: `${src.color}0d`, border: `1px solid ${src.color}28`,
+                        borderRadius: 7, padding: '0.6rem 0.9rem', flex: 1,
+                        display: 'flex', alignItems: 'center', gap: '0.6rem',
+                      }}>
+                        <span style={{ fontSize: '1rem' }}>{src.icon}</span>
+                        <div>
+                          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: src.color, fontWeight: 600 }}>{src.system}</p>
+                          <p style={{ fontSize: '0.62rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>{src.data}</p>
+                        </div>
+                      </div>
+                      <span style={{ color: 'var(--accent)', fontSize: '0.85rem', flexShrink: 0 }}>→</span>
+                      <div style={{ background: 'rgba(232,197,71,0.08)', border: '1px solid rgba(232,197,71,0.2)', borderRadius: 6, padding: '0.35rem 0.6rem', fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--accent)', whiteSpace: 'nowrap' }}>
+                        SafeRoute
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Pull quote */}
+                <div style={{
+                  marginTop: '2rem', padding: '1.25rem 1.5rem',
+                  background: 'var(--surface)', border: '1px solid var(--border)',
+                  borderLeft: '3px solid var(--accent)', borderRadius: 8,
+                }}>
+                  <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: 'var(--text)', fontStyle: 'italic', marginBottom: '0.6rem' }}>
+                    "The data pipes are already built — what's been missing is a reason for students to want to be safe, not just a consequence for when they aren't."
+                  </p>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--accent)', letterSpacing: '0.08em' }}>
+                    THE INCENTIVE LAYER IS WHAT'S MISSING
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Phone mockup: Parivahan-linked screen */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                style={{
+                  width: 248, flexShrink: 0,
+                  background: '#0a0a12',
+                  border: '2px solid rgba(255,255,255,0.1)',
+                  borderRadius: 36, padding: '10px',
+                  boxShadow: '0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05)',
+                }}
+              >
+                <div style={{ width: 72, height: 20, background: '#0a0a12', borderRadius: '0 0 12px 12px', margin: '0 auto 6px', border: '1px solid rgba(255,255,255,0.06)', borderTop: 'none' }} />
+                <div style={{ background: '#12121e', borderRadius: 24, height: 470, overflow: 'hidden', color: 'white', padding: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+
+                  {/* Header */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.3)', marginBottom: 1 }}>NATIONAL DRIVER ID</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: '#e8c547' }}>DL-36-20190031</div>
+                    </div>
+                    <div style={{ background: 'rgba(109,220,142,0.15)', border: '1px solid #6ddc8e40', borderRadius: 10, padding: '0.15rem 0.5rem', fontSize: '0.48rem', color: '#6ddc8e', fontFamily: 'var(--font-mono)' }}>● VERIFIED</div>
+                  </div>
+
+                  {/* Score */}
+                  <div style={{ background: 'rgba(232,197,71,0.08)', border: '1px solid rgba(232,197,71,0.22)', borderRadius: 10, padding: '0.9rem', textAlign: 'center' }}>
+                    <div style={{ fontSize: '0.5rem', color: '#e8c547', fontFamily: 'var(--font-mono)', marginBottom: 4, letterSpacing: '0.1em' }}>DRIVING SCORE</div>
+                    <div style={{ fontSize: '2.4rem', fontWeight: 700, color: '#e8c547', lineHeight: 1 }}>84</div>
+                    <div style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>Top 18% nationally · Tier 3 — Responsible</div>
+                    <div style={{ height: 4, background: 'rgba(255,255,255,0.07)', borderRadius: 2, margin: '0.5rem 0 0' }}>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '84%' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.2, delay: 0.4, ease: 'easeOut' }}
+                        style={{ height: '100%', background: 'linear-gradient(90deg, #e8c547, #6ddc8e)', borderRadius: 2 }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Linked sources */}
+                  <div>
+                    <div style={{ fontSize: '0.48rem', color: 'rgba(255,255,255,0.28)', fontFamily: 'var(--font-mono)', marginBottom: '0.4rem', letterSpacing: '0.08em' }}>LINKED SOURCES</div>
+                    {[
+                      { label: 'Parivahan', status: '● Synced', color: '#e8c547' },
+                      { label: 'eChallan / ITMS', status: '● Live', color: '#7eb8d4' },
+                      { label: 'FASTag', status: '● Synced', color: '#6ddc8e' },
+                      { label: 'Insurance (HDFC)', status: '● Linked', color: '#c47eb5' },
+                    ].map((src, si) => (
+                      <div key={si} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.28rem 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                        <span style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.55)' }}>{src.label}</span>
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', color: src.color }}>{src.status}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats row */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                    <div style={{ background: 'rgba(109,220,142,0.07)', border: '1px solid rgba(109,220,142,0.2)', borderRadius: 7, padding: '0.6rem' }}>
+                      <div style={{ fontSize: '0.48rem', color: '#6ddc8e', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>CHALLANS (12M)</div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#6ddc8e' }}>0</div>
+                      <div style={{ fontSize: '0.46rem', color: 'rgba(255,255,255,0.3)' }}>Clean record</div>
+                    </div>
+                    <div style={{ background: 'rgba(232,197,71,0.07)', border: '1px solid rgba(232,197,71,0.2)', borderRadius: 7, padding: '0.6rem' }}>
+                      <div style={{ fontSize: '0.48rem', color: '#e8c547', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>NEXT TIER</div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#e8c547' }}>T4</div>
+                      <div style={{ fontSize: '0.46rem', color: 'rgba(255,255,255,0.3)' }}>38 safe days left</div>
+                    </div>
+                  </div>
+
+                  {/* Benefit unlock */}
+                  <div style={{ background: 'rgba(196,126,181,0.08)', border: '1px solid rgba(196,126,181,0.2)', borderRadius: 7, padding: '0.65rem' }}>
+                    <div style={{ fontSize: '0.48rem', color: '#c47eb5', fontFamily: 'var(--font-mono)', marginBottom: '0.3rem', letterSpacing: '0.06em' }}>UNLOCKS AT TIER 4</div>
+                    <div style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>25% insurance discount · Priority claims · ₹200 fuel cashback/mo</div>
+                  </div>
+
+                </div>
+                <div style={{ width: 72, height: 3, background: 'rgba(255,255,255,0.18)', borderRadius: 2, margin: '8px auto 0' }} />
+              </motion.div>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
       {/* HMW statement */}
       <section style={{ padding: '8rem 2rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{
