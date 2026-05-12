@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const links = [
   { path: '/', label: 'Home', sub: 'Problem Statement' },
   { path: '/journey', label: 'Journey', sub: 'Our Research Process' },
-  { path: '/about', label: 'About Us', sub: 'Team Canvascrew' },
   { path: '/prototype', label: 'Prototype', sub: 'The Solution' },
+  { path: '/about', label: 'About Us', sub: 'Team Canvascrew' },
 ];
 
 export default function Nav() {
