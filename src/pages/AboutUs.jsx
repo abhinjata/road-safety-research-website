@@ -39,15 +39,15 @@ const members = [
   {
     id: 'SE24UARI017',
     name: 'Abhinav Jata',
-    role: 'GIS & Psychology Analyst',
-    focus: 'Hyderabad GIS accident mapping, behavioral psychology frameworks',
+    role: 'Psychology Researcher & WebDev Lead',
+    focus: 'Behavioral psychology frameworks, sensation-seeking analysis, developer of the website',
     color: '#e88c8c',
   },
   {
     id: 'SE24UARI031',
     name: 'Karri Sathya Naga Venkat Reddy',
     role: 'Psychology Researcher',
-    focus: 'Emotional motivations behind risky driving, sensation-seeking analysis',
+    focus: 'Emotional motivations behind risky driving, key motivations analysis',
     color: '#ffc07a',
   },
   {
