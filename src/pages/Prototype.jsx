@@ -220,7 +220,7 @@ export default function Prototype() {
             fontFamily: 'var(--font-display)', fontWeight: 900,
             lineHeight: 1.05, marginBottom: '1.5rem',
           }}>
-            SafeRoute<br />
+            Raahi<br />
             <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>— not a warning. a system.</span>
           </h1>
           <p style={{
@@ -957,11 +957,11 @@ export default function Prototype() {
               WHY IT WORKS
             </p>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontFamily: 'var(--font-display)', marginBottom: '1rem' }}>
-              SafeRoute is the<br />
+              Raahi is the<br />
               <span style={{ fontStyle: 'italic' }}>missing layer</span>
             </h2>
             <p style={{ color: 'var(--text-dim)', lineHeight: 1.75, fontSize: '0.95rem' }}>
-              India's traffic enforcement infrastructure is more sophisticated than most people realise — yet purely punitive systems consistently fail to change behaviour. SafeRoute doesn't replace this infrastructure. It completes it.
+              India's traffic enforcement infrastructure is more sophisticated than most people realise — yet purely punitive systems consistently fail to change behaviour. Raahi doesn't replace this infrastructure. It completes it.
             </p>
           </motion.div>
 
@@ -1090,14 +1090,14 @@ export default function Prototype() {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem', padding: '0 0.5rem' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--accent)', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>+ SafeRoute</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--accent)', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>+ Raahi</span>
                 <span style={{ fontSize: '1.4rem', color: 'var(--accent)' }}>→</span>
               </div>
 
               <div style={{ background: 'rgba(109,220,142,0.05)', border: '1px solid rgba(109,220,142,0.18)', borderRadius: 8, padding: '1.5rem' }}>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: '#6ddc8e', letterSpacing: '0.08em', marginBottom: '1rem' }}>WITH SAFEROUTE</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                  {['Driver drives safely', 'ITMS confirms zero violations', 'Parivahan score updates live', 'SafeRoute grants tier upgrade', 'Insurance premium drops 25%'].map((step, i, arr) => (
+                  {['Driver drives safely', 'ITMS confirms zero violations', 'Parivahan score updates live', 'Raahi grants tier upgrade', 'Insurance premium drops 25%'].map((step, i, arr) => (
                     <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                       <div style={{ background: 'rgba(109,220,142,0.08)', border: '1px solid rgba(109,220,142,0.15)', borderRadius: 5, padding: '0.4rem 0.75rem', fontSize: '0.75rem', color: 'var(--text)' }}>{step}</div>
                       {i < arr.length - 1 && <div style={{ width: 1, height: 14, background: 'rgba(109,220,142,0.2)', marginLeft: 20 }} />}
@@ -1118,7 +1118,7 @@ export default function Prototype() {
               INTEGRATION PROTOTYPE
             </p>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-dim)', marginBottom: '2.5rem', maxWidth: 600, lineHeight: 1.7 }}>
-              The same Parivahan driver identity that currently only tracks wrongdoing can surface directly inside SafeRoute — turning government enforcement data into a personalised safety dashboard.
+              The same Parivahan driver identity that currently only tracks wrongdoing can surface directly inside Raahi — turning government enforcement data into a personalised safety dashboard.
             </p>
 
             <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center' }}>
@@ -1153,7 +1153,7 @@ export default function Prototype() {
                       </div>
                       <span style={{ color: 'var(--accent)', fontSize: '0.85rem', flexShrink: 0 }}>→</span>
                       <div style={{ background: 'rgba(232,197,71,0.08)', border: '1px solid rgba(232,197,71,0.2)', borderRadius: 6, padding: '0.35rem 0.6rem', fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--accent)', whiteSpace: 'nowrap' }}>
-                        SafeRoute
+                        Raahi
                       </div>
                     </div>
                   ))}
